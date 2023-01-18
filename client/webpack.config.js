@@ -18,7 +18,41 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html'
+      }),
+      new InjectManifest({
+        swSrc: './src/src-sw.js',
+        swDest: 'service-worker.js',
+      }),
+      new WebpackPwaManifest({
+
+        "short_name": 'J.A.T.E.',
+        "name": 'Just Another Text Editor',
+        "icons": [
+          {
+            'src': '/client/favicon.ico',
+            'type': 'image/icon',
+            'sizes': '192x192',
+            'purpose': 'any maskable'
+          },
+          {
+            'src': '/client/src/images/logo.png',
+            'type': 'image/png',
+            'sizes': '512x512',
+            'purpose': 'any maskable'
+          }
+        ],
+        'id': '/',
+        'start_url': '/',
+        'background_color': '#272822',
+        'orientation': 'portrait',
+        'display': 'standalone',
+        'scope': '/',
+        'theme_color': '#31a9e1',
+        'description': 'Jot down code snippets with ease!'
+      })
+
     ],
 
     module: {
