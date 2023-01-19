@@ -24,7 +24,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "src-sw.js",
+        swDest: "src.js",
       }),
 
       new WebpackPwaManifest({
@@ -40,19 +40,12 @@ module.exports = () => {
         publicPath: "./",
         icons: [
           {
-            src: path.resolve("client/favicon.ico"),
-            type: "image/icon",
-            sizes: 96,
+            src: path.resolve("src/images/logo.png"),
+            type: "image/png",
+            sizes: [96, 128, 256, 384, 512],
             destination: path.join("assets", "icons"),
             purpose: "any maskable",
           },
-          // {
-          //   src: path.resolve("images/logo.png"),
-          //   type: "image/png",
-          //   sizes: [96, 128, 256, 384, 512],
-          //   destination: path.join("images", "icons"),
-          //   purpose: "any maskable",
-          // },
         ],
       }),
     ],
