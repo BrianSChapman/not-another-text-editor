@@ -4,7 +4,7 @@ const butInstall = document.getElementById('buttonInstall');
 
 window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
-    butInstall.style.visibility = 'visible';
+    butInstall.classList.toggle = ('hidden', false);
 });
 
 butInstall.addEventListener('click', async (event) => {
