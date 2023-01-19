@@ -14,33 +14,36 @@ module.exports = () => {
       install: "./src/js/install.js",
     },
     output: {
-      filename: "[name].bundle.js",
+      filename: "bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./index.html",
+        title: "Text Editor",
       }),
       new InjectManifest({
-        swSrc: "./src/src-sw.js",
+        swSrc: "./src-sw.js",
         swDest: "service-worker.js",
       }),
+
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
         short_name: "J.A.T.E.",
         name: "Just Another Text Editor",
-        publicPath: "/",
-        start_url: "/",
+        description: "Jot down code snippets with ease!",
         background_color: "#272822",
         display: "standalone",
         theme_color: "#31a9e1",
-        description: "Jot down code snippets with ease!",
+        start_url: "./",
+        publicPath: "./",
         icons: [
           {
             src: path.resolve("/client/favicon.ico"),
             type: "image/icon",
             sizes: 96,
+            destination: path.join("assets", "icons"),
             purpose: "any maskable",
           },
           {
@@ -62,15 +65,11 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /node_modules/,
+          exclude: /node_modules|bower_components/,
           use: {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
-              plugins: [
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel-transform-runtime",
-              ],
             },
           },
         },
