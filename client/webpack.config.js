@@ -48,7 +48,6 @@ module.exports = () => {
         'background_color': '#272822',
         'orientation': 'portrait',
         'display': 'standalone',
-        'scope': '/',
         'theme_color': '#31a9e1',
         'description': 'Jot down code snippets with ease!'
       })

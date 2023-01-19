@@ -21,7 +21,7 @@ export const putDb = async (content) => {
     const store = putData.objectStore("jate");
     const request = store.put(content);
     const result = await request;
-    console.log("result.value", result);
+    console.log("Successfully saved the data!");
     return result;
   } catch (err) {
     console.error("Content could not be saved. Please try again.");
