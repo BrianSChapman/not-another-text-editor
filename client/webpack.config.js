@@ -14,7 +14,7 @@ module.exports = () => {
       install: "./src/js/install.js",
     },
     output: {
-      filename: "bundle.js",
+      filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
@@ -24,7 +24,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "service-worker.js",
+        swDest: "src-sw.js",
       }),
 
       new WebpackPwaManifest({
@@ -40,19 +40,19 @@ module.exports = () => {
         publicPath: "./",
         icons: [
           {
-            src: path.resolve("/client/favicon.ico"),
+            src: path.resolve("client/favicon.ico"),
             type: "image/icon",
             sizes: 96,
             destination: path.join("assets", "icons"),
             purpose: "any maskable",
           },
-          {
-            src: path.resolve("/client/src/images/logo.png"),
-            type: "image/png",
-            sizes: [96, 128, 256, 384, 512],
-            destination: path.join("assets", "icons"),
-            purpose: "any maskable",
-          },
+          // {
+          //   src: path.resolve("images/logo.png"),
+          //   type: "image/png",
+          //   sizes: [96, 128, 256, 384, 512],
+          //   destination: path.join("images", "icons"),
+          //   purpose: "any maskable",
+          // },
         ],
       }),
     ],
@@ -62,6 +62,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
+        },
+        {
+        test: /|.(png|svg|jpg|gif)$/i,
+        type: 'asset/resource',
         },
         {
           test: /\.m?js$/,
