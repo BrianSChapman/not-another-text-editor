@@ -23,28 +23,27 @@ module.exports = () => {
         title: "Text Editor",
       }),
       new InjectManifest({
-        swSrc: "./src-sw.js",
-        swDest: "src-sw.js",
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
 
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        short_name: "J.A.T.E.",
-        name: "Just Another Text Editor",
-        description: "Jot down code snippets with ease!",
-        display: "standalone",
-        background_color: "#272822",
-        theme_color: "#31a9e1",
-        start_url: "./",
-        publicPath: "./",
+        short_name: 'J.A.T.E.',
+        name: 'Just Another Text Editor',
+        description: 'Jot down code snippets with ease!',
+        display: 'standalone',
+        background_color: '#272822',
+        theme_color: '#31a9e1',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
-            src: path.resolve("src/images/logo.png"),
-            type: "image/png",
+            src: path.resolve('src/images/logo.png'),
+            type: 'image/png',
             sizes: [96, 128, 256, 384, 512],
-            destination: path.join("assets", "icons"),
-            purpose: "any maskable",
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),
@@ -55,10 +54,6 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
-        },
-        {
-        test: /|.(png|svg|jpg|gif)$/i,
-        type: 'asset/resource',
         },
         {
           test: /\.m?js$/,
