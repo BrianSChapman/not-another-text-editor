@@ -4,8 +4,7 @@ const butInstall = document.getElementById("buttonInstall");
 
 window.addEventListener("beforeinstallprompt", (event) => {
   window.deferredPrompt = event;
-  event.preventDefault();
-  butInstall.style.visibility = "visible";
+  butInstall.classList.toggle("hidden", false);
 });
 
 butInstall.addEventListener("click", async (event) => {
@@ -15,11 +14,9 @@ butInstall.addEventListener("click", async (event) => {
   }
   promptEvent.prompt();
   window.deferredPrompt = null;
-  butInstall.setAttribute("disabled", true);
-  butInstall.textContent = "Installed!";
+  butInstall.classList.toggle("hidden", true);
 });
 
 window.addEventListener("appinstalled", (event) => {
   window.deferredPrompt = null;
-  console.log("appinstalled", event);
 });

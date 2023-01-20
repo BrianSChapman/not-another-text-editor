@@ -24,7 +24,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "src.js",
+        swDest: "src-sw.js",
       }),
 
       new WebpackPwaManifest({
@@ -33,8 +33,8 @@ module.exports = () => {
         short_name: "J.A.T.E.",
         name: "Just Another Text Editor",
         description: "Jot down code snippets with ease!",
-        background_color: "#272822",
         display: "standalone",
+        background_color: "#272822",
         theme_color: "#31a9e1",
         start_url: "./",
         publicPath: "./",
