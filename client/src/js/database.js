@@ -32,8 +32,7 @@ export const getDb = async () => {
     const store = getData.objectStore("jate");
     const request = store.getAll();
     const result = await request;
-    console.log(result);
-    return result;
+    console.log(result)
 };
 
 initdb();
