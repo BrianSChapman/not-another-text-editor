@@ -4,9 +4,7 @@
 
 Progressive web applications have been on the rise with the birth of all different kinds of technologies. Harnessing the use of service workers, Google's Workbox, browser built-in IndexedDB, and use of Manifests, I've created a text editor that can save your work while you're on the go. Utilize the syntax highlighting. Want to take it out of the browser? Feel free to download it and use it as a standalone app as well!
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents 
 
 - [Installation](#installation)
 - [Usage](#usage)
